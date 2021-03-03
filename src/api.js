@@ -28,14 +28,18 @@ const currentDay = getCurrentDay();
 
 const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
 const lastYear = `${currentYear-1}-${currentMonth}-${currentDay}`;
-const nextyear = `${currentYear+1}-${currentMonth}-${currentDay}`;
+const nextYear = `${currentYear+1}-${currentMonth}-${currentDay}`;
 
 
 // Popular Games
-const pop_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=10` // Fetch 10 most popular games from last year until now
+const pop_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`; // Fetch 10 most popular games from last year until now
+const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`; // Upcoming 10 games
+const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`; // Newest 10 games
 
+export const popularGamesURL = () => `${base_url}${pop_games}`; // Doesn't need return function if it's one line
+export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
+export const newGamesURL = () => `${base_url}${new_games}`;
 
-export const popularGamesURL = () => `${base_url}${pop_games}` // Doesn't need return function if it's one line
 
 
 
