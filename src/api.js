@@ -36,6 +36,9 @@ const pop_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_
 const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`; // Upcoming 10 games
 const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`; // Newest 10 games
 
+// Game Details
+export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`
+
 export const popularGamesURL = () => `${base_url}${pop_games}`; // Doesn't need return function if it's one line
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${new_games}`;
