@@ -39,6 +39,9 @@ const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&pag
 // Game Details
 export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}`
 
+// Screenshots
+export const gameScreenshotURL = (game_id) => `${base_url}games/${game_id}/screenshots`
+
 export const popularGamesURL = () => `${base_url}${pop_games}`; // Doesn't need return function if it's one line
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${new_games}`;
