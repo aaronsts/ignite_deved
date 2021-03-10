@@ -11,6 +11,12 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar{
             width: 0.5rem;
         }
+        &::-webkit-scrollbar-thumb{
+        background-color: darkgray;
+        }
+        &::-webkit-scrollbar-track{
+            background: white;
+        }
 
     }
     &::-webkit-scrollbar-thumb{
@@ -29,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
     h3{
         font-size: 1.4rem;
         color: #191919;
-        padding: 1.2rem;
+        padding: 1.2rem 0rem;
     }
     p{
         font-size: 1.2rem;
