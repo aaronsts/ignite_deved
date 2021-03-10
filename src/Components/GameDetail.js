@@ -1,4 +1,5 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom';
 
 // Styling
 import styled from 'styled-components';
@@ -7,13 +8,22 @@ import {motion} from 'framer-motion';
 import {useSelector} from 'react-redux';
 
 
+
 const GameDetail = () => {
+    const history = useHistory();
+    // Exit Detail
+    const exitDetailHandler = (e) => {
+        const element = e.target;
+        if(element.classList.contains('detail-card')){
+            history.push('/');
+        }
+    }
     // Data
     const {screenshot, game, isLoading} = useSelector(state => state.detail);
     return (
         <>
         {!isLoading && (
-            <StyledCardShadow>
+            <StyledCardShadow className='detail-card' onClick={exitDetailHandler}>
                 <StyledDetail>
                     <StyledStats>
                         <div className="rating">
@@ -30,14 +40,14 @@ const GameDetail = () => {
                         </StyledInfo>
                     </StyledStats>
                     <StyledMedia>
-                        <img src={game.background_image} alt="image"/>
+                        <img src={game.background_image} alt={game.name}/>
                     </StyledMedia>
                     <StyledDescription>
                         <p>{game.description_raw}</p>
                     </StyledDescription>
                     <div className="gallery">
                         {screenshot.results && screenshot.results.map(screenshot => (
-                            <img src={screenshot.image} key={screenshot.id} alt="game"/>
+                            <img src={screenshot.image} key={screenshot.id} alt={game.name}/>
                         ))}
                     </div>
                 </StyledDetail>

@@ -12,7 +12,7 @@ import {loadDetail} from '../actions/detailAction';
 const Game = ({name, released, image, id}) => {
     const dispatch = useDispatch();
     const loadDetailHandler = () => {
-        dispatch(loadDetail(id))
+        dispatch(loadDetail(id));
     }
     return (
         <StyledGame onClick={loadDetailHandler}>

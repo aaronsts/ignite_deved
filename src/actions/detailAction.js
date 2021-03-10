@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {gameDetailsURL, gameScreenshotURL} from '../api'
-import detailReducer from '../reducers/detailReducer';
 
 
 // Get details of games 
