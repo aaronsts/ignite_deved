@@ -7,6 +7,8 @@ import {motion} from 'framer-motion';
 // Redux
 import {useSelector} from 'react-redux';
 
+import {resizeImg} from '../util';
+
 
 
 const GameDetail = () => {
@@ -40,7 +42,7 @@ const GameDetail = () => {
                         </StyledInfo>
                     </StyledStats>
                     <StyledMedia>
-                        <img src={game.background_image} alt={game.name}/>
+                        <img src={resizeImg(game.background_image,640)} alt={game.name}/>
                     </StyledMedia>
                     <StyledDescription>
                         <p>{game.description_raw}</p>
