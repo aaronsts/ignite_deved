@@ -32,7 +32,7 @@ const nextYear = `${currentYear+1}-${currentMonth}-${currentDay}`;
 
 
 // Popular Games
-const pop_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=15`; // Fetch 15 most popular games from last year until now
+const pop_games = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=12`; // Fetch 15 most popular games from last year until now
 const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`; // Upcoming 10 games
 const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`; // Newest 10 games
 
