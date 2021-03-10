@@ -9,37 +9,41 @@ import {useSelector} from 'react-redux';
 
 const GameDetail = () => {
     // Data
-    const {screenshot, game} = useSelector(state => state.detail);
+    const {screenshot, game, isLoading} = useSelector(state => state.detail);
     return (
-        <StyledCardShadow>
-            <StyledDetail>
-                <StyledStats>
-                    <div className="rating">
-                        <h3>{game.name}</h3>
-                        <p>{game.rating}</p>
+        <>
+        {!isLoading && (
+            <StyledCardShadow>
+                <StyledDetail>
+                    <StyledStats>
+                        <div className="rating">
+                            <h3>{game.name}</h3>
+                            <p>{game.rating}</p>
+                        </div>
+                        <StyledInfo>
+                            <h3>Platforms</h3>
+                            <StyledPlatforms>
+                                {game.platforms && game.platforms.map(data => (
+                                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                                ))}
+                            </StyledPlatforms>
+                        </StyledInfo>
+                    </StyledStats>
+                    <StyledMedia>
+                        <img src={game.background_image} alt="image"/>
+                    </StyledMedia>
+                    <StyledDescription>
+                        <p>{game.description_raw}</p>
+                    </StyledDescription>
+                    <div className="gallery">
+                        {screenshot.results && screenshot.results.map(screenshot => (
+                            <img src={screenshot.image} key={screenshot.id} alt="game"/>
+                        ))}
                     </div>
-                    <StyledInfo>
-                        <h3>Platforms</h3>
-                        <StyledPlatforms>
-                            {game.platforms && game.platforms.map(data => (
-                                <h3 key={data.platform.id}>{data.platform.name}</h3>
-                            ))}
-                        </StyledPlatforms>
-                    </StyledInfo>
-                </StyledStats>
-                <StyledMedia>
-                    <img src={game.background_image} alt="image"/>
-                </StyledMedia>
-                <StyledDescription>
-                    <p>{game.description_raw}</p>
-                </StyledDescription>
-                <div className="gallery">
-                    {screenshot.results && screenshot.results.map(screenshot => (
-                        <img src={screenshot.image} key={screenshot.id} alt="game"/>
-                    ))}
-                </div>
-            </StyledDetail>
-        </StyledCardShadow>
+                </StyledDetail>
+            </StyledCardShadow>
+        )}
+        </>
     );
 };
 
