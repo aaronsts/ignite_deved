@@ -4,17 +4,25 @@ import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import logo from '../img/logo.svg';
 
+// Redux
+import {fetchSearch} from '../actions/gamesAction';
+import {useDispatch} from 'react-redux';
+
 const Nav = () => {
+    const dispatch = useDispatch();
+    const submitSearch = () => {
+        dispatch(fetchSearch(textInput));
+    }
     return (
         <StyledNav>
             <StyledLogo>
                 <img src={logo} alt='logo'></img>
                 <h1>Ignite</h1>
             </StyledLogo>
-            <div className="search">
+            <form className="search">
                 <input type="text"/>
-                <button>Search</button>
-            </div>
+                <button type="submit" >Search</button>
+            </form>
         </StyledNav>
     )
 }

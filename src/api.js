@@ -46,6 +46,8 @@ export const popularGamesURL = () => `${base_url}${pop_games}`; // Doesn't need 
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${new_games}`;
 
+export const searchGameURL = (game_name) => `${base_url}games?search=${game_name}&page_size=9`;
+
 
 
 
